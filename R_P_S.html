@@ -11,10 +11,30 @@
          else
          return "Scissors";
      }
-     /*function playOnce( playerSelection, computerSelection){
+     function playOnce( playerSelection, computerSelection){
          playerSelection = playerSelection.toUpperCase();
          computerSelection = computerSelection.toUpperCase();
-         if(playerSelection === "ROCK" && computerSelection === "PAPER")
-     }*/
-     console.log(computerPLay());
+         if(playerSelection === "ROCK")
+         {
+             if(computerSelection === "SCISSORS")
+             return "You win!Rock crushes Scissors";
+             else
+             return "You lose!Paper covers Rock";
+         }
+         if(playerSelection === "PAPER")
+         {
+             if(computerSelection === "ROCK")
+             return "You win!Paper covers Rock";
+             else
+             return "You lose!Scissors cut Paper";
+         }
+         if(playerSelection === "SCISSORS")
+         {
+             if(computerSelection === "ROCK")
+             return "You lose!Rock crushes Scissors";
+             else
+             return "You win!Scissors cut Paper";
+         }
+     }
+
  </script>
