@@ -1,0 +1,20 @@
+ <!DOCTYPE html>
+ <script>
+     function computerPLay(){
+         let min = 0;
+         let max = 3;
+         plays = Math.floor(Math.random()*(+max - +min)) + +min;
+         if(plays === 0)
+         return "Rock";
+         else if(plays === 1)
+         return "Paper";
+         else
+         return "Scissors";
+     }
+     /*function playOnce( playerSelection, computerSelection){
+         playerSelection = playerSelection.toUpperCase();
+         computerSelection = computerSelection.toUpperCase();
+         if(playerSelection === "ROCK" && computerSelection === "PAPER")
+     }*/
+     console.log(computerPLay());
+ </script>
