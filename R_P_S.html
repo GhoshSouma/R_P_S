@@ -18,23 +18,53 @@
          {
              if(computerSelection === "SCISSORS")
              return "You win!Rock crushes Scissors";
-             else
+             else if(computerSelection === "PAPER")
              return "You lose!Paper covers Rock";
+             else
+             return "You tied :(";
          }
          if(playerSelection === "PAPER")
          {
              if(computerSelection === "ROCK")
              return "You win!Paper covers Rock";
-             else
+             else if(computerSelection === "SCISSORS")
              return "You lose!Scissors cut Paper";
+             else
+             return "You tied :(";
          }
          if(playerSelection === "SCISSORS")
          {
              if(computerSelection === "ROCK")
              return "You lose!Rock crushes Scissors";
-             else
+             else if(computerSelection === "PAPER")
              return "You win!Scissors cut Paper";
+             else
+             return "You tied :(";
          }
      }
+
+     function game(gameLength,round,userScore,result){
+         if(round <= gameLength)
+         {
+         console.log("Round "+round+" fight!\n")
+         userOption = window.prompt("Choose rock,paper or scissors if you dare?!");
+         if((result = playOnce(userOption,computerPLay())).substring(0,7) === "You win")
+         {
+             userScore = +userScore + 1;
+             console.log(result);
+         }
+         else if((result = playOnce(userOption,computerPLay())).substring(0,7) === "You tie"){
+             userScore = (+userScore * 10 + 5)/10;
+             console.log(result);
+         }
+         else
+         console.log(result);
+         return game(gameLength,++round,++userScore,"");
+     }
+     console.log("\nFinal Score: "+userScore);
+     return;
+     }
+
+     game(5,1,0,"");
 
  </script>
