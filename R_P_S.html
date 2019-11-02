@@ -42,8 +42,19 @@
              return "You tied :(";
          }
      }
+     function randMessage(){
+         let min = 0;
+         let max = 3;
+         messageChooser = Math.floor(Math.random()*(+max - +min)) + +min;
+         if(messageChooser === 0)
+         return "\nFatality!!";
+         else if(messageChooser === 1)
+         return "\nBrutality!!";
+         else
+         return "\n";
+     }
 
-     function game(gameLength,round,userScore,result){
+     function setGame(gameLength,round,userScore,result){
          if(round <= gameLength)
          {
          userOption = window.prompt("Choose rock,paper or scissors if you dare?!");
@@ -51,15 +62,15 @@
          if((userOption.toUpperCase()!="ROCK") && (userOption.toUpperCase()!="SCISSORS") && (userOption.toUpperCase())!="PAPER")
          {
              console.log("You besmirch the name of Mortal Kombat....You Die!!");
-             console.log("\nFinal Score: "+userScore - 1);
+             console.log("\nFinal Score: "+ (+userScore - 1) + randMessage());
              return;
          }
-         result = playOnce(userOption,computerPLay())
+         result = playOnce(userOption,computerPLay()); 
 
          if(result.substring(0,7) === "You win")
          {
              userScore = +userScore + 1;
-             console.log(result);
+             console.log(result + randMessage());
          }
          else if(result.substring(0,7) === "You tie")
          {
@@ -67,13 +78,17 @@
              console.log(result);
          }
          else
-         console.log(result);
-         return game(gameLength,++round,userScore,"");
+         console.log(result + randMessage());
+         return setGame(gameLength,++round,userScore,"");
      }
+     if(userScore === +gameLength)
+     console.log("\nFlawless Victory!!");
      console.log("\nFinal Score: " + userScore);
      return;
      }
-
-     game(5,1,0,"");
+     function game(){
+          setGame(5,1,0,"");
+     }
+     game();
 
  </script>
